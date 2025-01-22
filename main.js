@@ -90,6 +90,31 @@ console.log(num3);
 var num4 = 10;
 console.log(--num4); // The value of the variable is decreased before the current operation.
 console.log(num4);
+// Comparison operators
+2 != 1;
+2 > 1;
+2 >= 1;
+2 < 1;
+2 <= 1;
+// the strict equality operator: It is used to compare two values both in terms of value and type. This means that for the comparison to return true, the values must be of the same type and have the same value. Unlike the == (loose equality) operator, === does not perform type coercion. This means that if the operands are of different types, the comparison will return false even if their values are loosely equal.
+2 === 1;
+console.log(5 === 5);       // true (same type and value)
+console.log("hello" === "hello");  // true (same type and value)
+console.log(5 === "5");  // false (different types: number vs. string)
+console.log(true === 1); // false (different types: boolean vs. number)
+// When comparing objects (arrays, objects, etc.), === checks if both operands reference the same object in memory, not if they are structurally identical.
+let obj1 = { a: 1 };
+let obj2 = { a: 1 };
+console.log(obj1 === obj2);  // false (they are different objects in memory)
+// == (loose equality): Compares values after type coercion.
+2 == 1;
+5 == "5" // returns true because JavaScript converts the string "5" to the number 5 before comparing.
+console.log(0 == false);  // true (because 0 is loosely equal to false)
+console.log(0 === false); // false (because 0 is a number and false is a boolean)
+console.log(null == undefined); // true (they are considered loosely equal)
+console.log(null === undefined); // false (different types: null vs undefined)
+
+
 
 // Data types in javascript
 
@@ -120,6 +145,14 @@ alert(milk);
 // null: represents the intentional absence of any object value. It is a special value that is explicitly assigned to a variable to represent "nothing" or "no value".
 let person = null;
 // Symbol: is a unique and immutable value often used as an identifier for object properties. Each Symbol is guaranteed to be unique.
-let sym1 = Symbol('description');
-let sym2 = Symbol('description');
+let sym1 = Symbol('same description');
+let sym2 = Symbol('same description');
+let sym3 = Symbol();
 console.log(sym1 === sym2);  // Outputs: false
+// Symbols are typically used to create unique property keys in objects. This is especially useful when you want to avoid property name collisions between different parts of a program, especially in larger codebases or when working with external libraries.
+let sym5 = Symbol("id");
+let obj = {
+  [sym5]: 123
+};
+console.log(obj[sym5]); // Outputs: 123
+
