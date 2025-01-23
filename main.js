@@ -1,7 +1,7 @@
 // Single line comments start with //
 /* Multi-line comments start with /* and end with */
-/* this is
-a multiline comment*/
+/* some keywords used in javascript: break, case, catch, class, const, continue, debugger, default, delete, do, else, enum (in TypeScript), eval, export, extends, finally, for, function,
+goto (not used in JavaScript, but reserved), if, import, in, instanceof, let, new, return, super, switch, this, throw, try, typeof, var, void, while, with, yield (used with generators) */
 
 // In javascript we use the semicolon ";" to indicate the end of a line
 alert("end of line");
@@ -35,8 +35,10 @@ return
 // to create variables we use the keyword "var"
 var k = "apple";
 var MyAge = 30;
-var Email = 'mail@mymail.com';
-var 1000 = 999+1
+var Email = 'mail' + '@mymail.com';
+Email += "mx"
+alert(Email)
+var 1234 = 999+1
 var days = 7;
 var hours = 24;
 var minutes = 60;
@@ -91,11 +93,12 @@ var num4 = 10;
 console.log(--num4); // The value of the variable is decreased before the current operation.
 console.log(num4);
 // Comparison operators
-2 != 1;
-2 > 1;
-2 >= 1;
-2 < 1;
-2 <= 1;
+2 != 1; // not equal
+2 > 1; // greater than
+2 >= 1; // greater or equal than
+2 < 1; // less than
+2 <= 1; // less or equal than
+
 // the strict equality operator: It is used to compare two values both in terms of value and type. This means that for the comparison to return true, the values must be of the same type and have the same value. Unlike the == (loose equality) operator, === does not perform type coercion. This means that if the operands are of different types, the comparison will return false even if their values are loosely equal.
 2 === 1;
 console.log(5 === 5);       // true (same type and value)
@@ -114,7 +117,10 @@ console.log(0 === false); // false (because 0 is a number and false is a boolean
 console.log(null == undefined); // true (they are considered loosely equal)
 console.log(null === undefined); // false (different types: null vs undefined)
 
-
+// logic operators
+"milk" && "shake" // and
+"lemon" || "lime" // or
+! "vegetable" // not
 
 // Data types in javascript
 
@@ -122,6 +128,7 @@ console.log(null === undefined); // false (different types: null vs undefined)
 let str1 = "Hello, World!";
 let str2 = 'JavaScript';
 let str3 = `Template literal`;
+
 // Number: represents both integer and floating-point numbers. JavaScript has one type for numbers (there is no separate integer type).
 let num1 = 42; // Integer
 let num2 = 3.14; // Floating-point number
@@ -155,4 +162,3 @@ let obj = {
   [sym5]: 123
 };
 console.log(obj[sym5]); // Outputs: 123
-
