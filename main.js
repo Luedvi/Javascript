@@ -32,7 +32,8 @@ return
   name: 'wonderland'
 };
 
-// to create variables we use the keyword "var"
+/* to create variables we use the keyword "var". var is legacy from older versions of JavaScript and has some quirky behavior that can lead to bugs (such as its function-scoping and hoisting behavior).
+While var is still supported, it’s best to avoid using it in modern JavaScript. Use let or const for better scoping and less error-prone code.*/
 var k = "apple";
 var MyAge = 30;
 var Email = 'mail' + '@mymail.com';
@@ -45,6 +46,77 @@ var minutes = 60;
 var seconds =60;
 var week_seconds = days * hours * minutes * seconds;
 alert(week_seconds);
+/* var: Variables declared with var are function-scoped. This means that if var is used inside a function, it’s only accessible within that function.
+If used outside of a function, it's globally scoped. Variables declared with let are block-scoped.
+This means they are only accessible within the block (e.g., within loops, conditionals, or functions) in which they’re defined.*/
+if (true) {
+    var x = 10;
+    let y = 20;
+}
+console.log(x); // 10 (because x is function or global scoped)
+console.log(y); // ReferenceError: y is not defined (because y is block scoped)
+/* "const" in JavaScript is used to declare variables whose values are immutable (cannot be reassigned) after the initial assignment.
+Just like let, variables declared with const are block-scoped. This means that the variable is only accessible within the block (or statement) where it is defined.*/
+if (true) {
+    const x = 10;
+}
+console.log(x); // ReferenceError: x is not defined
+//  A const variable must be initialized at the time of declaration. You cannot declare a const variable without assigning a value.
+const y; // SyntaxError: Missing initializer in const declaration
+
+/* const ensures that the binding (reference) to the variable cannot be changed once it’s been assigned. However, if the variable holds an object or an array,
+the content of the object or array can still be modified. So, while you cannot reassign the object, you can modify its properties.*/
+const x = 10;
+x = 20; // TypeError: Assignment to constant variable.
+
+const obj = { name: "Alice" };
+obj.name = "Bob"; // Allowed, we can mutate the object's properties
+console.log(obj.name); // "Bob"
+
+const numbers = [1, 2, 3];
+numbers.push(4); // Allowed: mutating the array
+console.log(numbers); // [1, 2, 3, 4]
+numbers = [5, 6, 7]; // TypeError: Assignment to constant variable
+
+/* var declarations are hoisted to the top of their scope and initialized with undefined. This means you can reference a var variable before its declaration,
+but its value will be undefined until the assignment happens. let and const are also hoisted, but they don't get initialized until the code execution reaches the line of its declaration.
+Accessing them before declaration results in a ReferenceError due to the "temporal dead zone."*/
+console.log(a); // undefined (due to hoisting)
+var a = 5;
+console.log(b); // ReferenceError: Cannot access 'b' before initialization
+let b = 10;
+console.log(x); // ReferenceError: Cannot access 'x' before initialization
+const x = 10;
+
+/* You can re-declare a variable within the same scope using var, and it won’t throw an error.
+You cannot re-declare a variable within the same scope using let or const. Attempting to do so will result in a SyntaxError.*/
+var a = 1;
+var a = 2; // No problem, it's re-declared.
+
+let b = 1;
+let b = 2; // SyntaxError: Identifier 'b' has already been declared
+
+const a = 10;
+const a = 20; // SyntaxError: Identifier 'a' has already been declared
+
+/* When you declare a variable with var in the global scope, it becomes a property of the global object (window in browsers).
+A global let declaration does not attach to the global object.*/
+var a = 1;
+console.log(window.a); // 1
+let b = 2;
+console.log(window.b); // undefined
+
+/* In modern JavaScript, the best practice is to use let and const over var. Use const by default for values that won’t change (such as constants or references that shouldn’t be reassigned).
+const makes your code more predictable and ensures that the variable’s reference cannot be changed (although the object it points to can still be mutated)*/
+const pi = 3.14;
+const user = { name: "Alice" };
+user.name = "Bob"; // allowed: mutating the object // user = {}; // TypeError: Assignment to constant variable.
+// For variables that might change their value during the execution of your code, use let. This is commonly used for counters, flags, and temporary variables within loops or conditionals.
+let counter = 0;
+counter++; // allowed: variable can be reassigned
+let name = "Alice";
+name = "Bob"; // allowed: reassignment
+
 // we can use strings, numbers and the "$" and "_" symbols, no other symbol is allowed
 var $ = 49
 var _ = 50
