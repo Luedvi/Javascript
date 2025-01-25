@@ -234,3 +234,33 @@ let obj = {
   [sym5]: 123
 };
 console.log(obj[sym5]); // Outputs: 123
+
+// You can define a function using either a function declaration or a function expression
+// function declaration
+function myFunction(name) {
+  console.log("Hello, " + name + "!");}
+myFunction("ashley");
+// function expression
+const myFunction2 = function(name) {
+  console.log("Hello, " + name + "!");};
+myFunction2("pedro");
+// Arrow Function (ES6+):
+const myFunction3 = (name) => {
+  console.log("Hello, " + name + "!");};
+myFunction3("manuel");
+// If the function body contains just one expression, you can omit the curly braces and return statement in an arrow function
+const myFunction4 = name => console.log("Hello, " + name + "!");
+myFunction4("carolina");
+
+// In JavaScript, the preferred naming convention for variables and functions is camelCase. This means the first word is lowercase, and each subsequent word starts with an uppercase letter, without any spaces or underscores
+let myVariableName = 10; // camelCase for variables, functions, and method names.
+function calculateTotalPrice() {
+  alert("price");}
+
+const MAX_SIZE = 100; // UPPER_SNAKE_CASE (all uppercase letters with underscores between words) is used for constants that don't change.
+class UserProfile { // PascalCase (which is like camelCase but starts with an uppercase letter) is often used for class names and constructors.
+  constructor(name) {
+    this.userName = name;
+  }
+}
+
