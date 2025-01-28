@@ -240,6 +240,13 @@ console.log(obj[sym5]); // Outputs: 123
 function myFunction(name) {
   console.log("Hello, " + name + "!");}
 myFunction("ashley");
+
+function cylinderAreaAndVolume(radius, height){
+    const PI = 3.1416;
+    let surfaceArea = 2 * PI * radius * (radius + height);
+    let volume = PI * radius **2 * height;
+    console.log("Cylinder surface area: " + surfaceArea + "\n" + "Cylinder volume: " + volume);}
+cylinderAreaAndVolume(6, 13);
 // function expression
 const myFunction2 = function(name) {
   console.log("Hello, " + name + "!");};
