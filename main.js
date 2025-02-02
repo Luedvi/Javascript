@@ -166,6 +166,7 @@ console.log(--num4); // The value of the variable is decreased before the curren
 console.log(num4);
 // Comparison operators
 2 != 1; // not equal
+2 !== 1 // strict not equal
 2 > 1; // greater than
 2 >= 1; // greater or equal than
 2 < 1; // less than
@@ -270,4 +271,112 @@ class UserProfile { // PascalCase (which is like camelCase but starts with an up
     this.userName = name;
   }
 }
+
+// if keyword: Parentheses () are required around the condition. {} Curly braces define the code block that will be executed if the condition is true. They are highly recommended, even for single-line statements (to prevent errors and improve readability).
+/* Truthy and Falsy Values: In JavaScript, values other than true or false can also be evaluated in a conditional. These are called "truthy" and "falsy" values.
+Falsy values include false, 0, null, undefined, NaN, and an empty string ("").All other values are truthy.*/
+let age = 20;
+if (age >= 18) {
+  console.log("You are an adult.");
+}
+
+let age = 25;
+let hasLicense = true;
+
+if (age >= 18 && hasLicense) {
+  console.log("You can drive.");
+}
+// else keyword: This provides an alternative block of code to execute when the if condition is false.
+let temperature = 15;
+if (temperature > 20) {
+  console.log("It's warm!");
+} else {
+  console.log("It's a bit chilly.");
+}
+// else if keyword: This lets you check multiple conditions in sequence. It's executed only if the preceding if or else if conditions are false.
+let score = 75;
+
+if (score >= 90) {
+  console.log("Excellent!");// Code to execute if condition1 is TRUE
+} else if (score >= 80) {
+  console.log("Good job!");// Code to execute if condition1 is FALSE and condition2 is TRUE
+} else if (score >= 70) {
+  console.log("Okay.");// Code to execute if condition1 and condition2 are FALSE, and condition3 is TRUE
+} else {
+  console.log("Needs improvement.");
+}
+// Ternary Operator "?" (A shorthand for simple if...else)
+let isLoggedIn = true;
+let message = isLoggedIn ? "Welcome!" : "Please log in.";// condition ? expressionIfTrue : expressionIfFalse;
+console.log(message); // Output: Welcome!
+// its equivalent would be
+let isLoggedIn = true;
+let message;
+if (isLoggedIn) {
+  message = "Welcome!";
+} else {
+  message = "Please log in.";
+}
+console.log(message); // Output: Welcome!
+
+//examples
+function calculateTotal(pizza, couponNumber){
+    let coupon
+    let price
+    if (couponNumber === 1){
+        coupon = .10;
+    } else if (couponNumber === 2){
+        coupon = .20;
+    } else {
+        coupon = 0;
+    }
+    if (pizza === "pepperoni"){
+        price = 15;
+    } else if (pizza === "margherita"){
+        price = 20;
+    } else {
+        price = 25;
+    }
+    let discount = price * coupon;
+    let total = price - discount;
+    console.log("Your order is a " + pizza + " pizza and you have a discount of $" + discount + "\n Total: $" + total);
+}
+calculateTotal("pepperoni", 2);
+
+function calcularTotal(pizza, cupon) {
+  // Definir precios de pizzas
+  const precios = {
+    "pepperoni": 15,
+    "margarita": 20,
+    "hawaiana": 25
+  };
+  // Verificar si la pizza es válida
+  if (!(pizza in precios)) {
+    return "Pizza no válida.";
+  }
+  // Obtener precio de la pizza
+  let precio = precios[pizza];
+  // Calcular descuento según el cupón
+  let descuento = 0;
+  if (cupon === 1) {
+    descuento = 0.10;
+  } else if (cupon === 2) {
+    descuento = 0.20;
+  }
+  // Calcular precio final
+  let precioFinal = precio * (1 - descuento);
+  // Crear mensaje de salida
+  let mensaje = `Su orden es una pizza ${pizza} con un precio de $${precio.toFixed(2)}.`;
+  if (descuento > 0) {
+    mensaje += `\nHa recibido un descuento del ${descuento * 100}%.`;
+  } else {
+    mensaje += "\nNo ha utilizado ningún cupón de descuento.";
+  }
+  mensaje += `\nEl precio final es de $${precioFinal.toFixed(2)}.`;
+  return mensaje;
+}
+console.log(calcularTotal("pepperoni", 1));
+console.log(calcularTotal("margarita", 2));
+console.log(calcularTotal("hawaiana", 0));
+console.log(calcularTotal("vegetariana", 1)); // Pizza no válida
 
