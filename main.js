@@ -412,3 +412,55 @@ if (name !== null) { // Check if the user clicked "Cancel"
 } else {
   console.log("User cancelled the prompt.");
 }
+
+// for loop: is used when you know in advance how many times you want to execute a statement or a block of statements.
+// for (initialization; condition; increment/decrement) {Code to execute}
+for (let i = 0; i < 5; i++) {
+    console.log(i); // Prints 0, 1, 2, 3, 4
+}
+
+let summation = 0;
+let total = 0;
+for (let number = 1; total <= 100; number ++){
+    summation += number;
+    total += summation;
+    if (total <= 100){
+        console.log("iteration" + number + ": " + summation + " total: " + total);}}
+// for...of loop: is used to iterate over the values of iterable objects like arrays, strings, etc.
+// for (let value of iterable) {Code to execute}
+const numbers = [1, 2, 3, 4, 5];
+for (let number of numbers) {
+    console.log(number); // Prints 1, 2, 3, 4, 5
+}
+// for...in loop: is used to iterate over the keys (or properties) of an object.
+// for (let key in object) {Code to execute}
+const person = { name: "John", age: 30, city: "New York" };
+for (let key in person) {
+    console.log(key, person[key]); // Prints name John, age 30, city New York
+}
+// while loop runs as long as a specified condition evaluates to true.
+// while (condition) {Code to execute}
+let i = 0;
+while (i < 5) {
+    console.log(i); // Prints 0, 1, 2, 3, 4
+    i++;
+}
+
+summation = 0;
+total = 0;
+let number = 1;
+while (total <= 100){
+    summation += number;
+    total += summation;
+    number ++;
+    if (total <= 100){
+        console.log("iteration" + number + ": " + summation + " total: " + total);}}
+// do...while loop: is similar to the while loop, but it guarantees that the block of code will execute at least once, even if the condition is false initially.
+// do {Code to execute} while (condition);
+let i = 0;
+do {
+    console.log(i); // Prints 0, 1, 2, 3, 4
+    i++;
+} while (i < 5);
+
+
