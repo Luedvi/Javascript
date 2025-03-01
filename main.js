@@ -463,4 +463,73 @@ do {
     i++;
 } while (i < 5);
 
+/* array: is a special type of object used to store multiple values or objects in a single variable.
+Indexed: Arrays are ordered collections, meaning each element has an index starting from 0.
+Mutable: You can modify the contents of an array after it is created.
+Flexible: Arrays can store values of any data type (numbers, strings, objects, etc.),
+and even other arrays (creating multidimensional arrays).*/
 
+//You can create arrays using Array Literal (Recommended)
+let fruits = ["apple", "banana", "cherry"];
+
+// Or using the `Array` Constructor
+let fruits1 = new Array("apple", "banana", "cherry");
+
+// You access array elements using their index, where the index starts from `0` for the first element
+console.log(fruits[0]);  // Output: "apple"
+console.log(fruits[2]);  // Output: "cherry"
+
+// The `length` property returns the number of elements in the array
+console.log(fruits.length);  // Output: 3
+
+// You can change an array element by assigning a new value to a specific index
+fruits[1] = "orange";  // Modifies the second element
+console.log(fruits);  // Output: ["apple", "orange", "cherry"]
+
+// push(): Adds an element to the end of an array.
+fruits.push("grape");  // Adds "grape" to the end
+
+// pop(): Removes the last element from the array.
+fruits.pop();  // Removes "grape"
+
+// shift(): Removes the first element from the array.
+fruits.shift();  // Removes "apple"
+
+// unshift(): Adds an element to the beginning of the array.
+fruits.unshift("mango");  // Adds "mango" to the start
+
+// slice(): Returns a shallow copy of a portion of the array.
+let slicedFruits = fruits.slice(1, 3);  // Returns elements at index 1 and 2
+
+// splice(): Adds/removes elements from any position in the array.
+fruits.splice(1, 1, "pear");  // Removes 1 element at index 1 and adds "pear"
+
+// forEach(): Executes a provided function once for each array element.
+fruits.forEach(function(fruit){
+  console.log(fruit);});
+
+// map(): Transforms an array by applying a function to each element.
+let upperCaseFruits = fruits.map(fruit => fruit.toUpperCase());
+
+/// filter(): Filters elements based on a condition.
+let longFruits = fruits.filter(fruit => fruit.length > 5);
+
+// find(): Returns the first element that passes a test.
+let foundFruit = fruits.find(fruit => fruit === "banana");
+
+// reduce(): Reduces the array to a single value based on a function.
+let sum = [1, 2, 3, 4].reduce((acc, current) => acc + current, 0);
+console.log(sum);  // Output: 10
+
+// indexOf(): Returns the first index of the value, or -1 if not found.
+let index = fruits.indexOf("banana");
+let myArray = [101,102,103,104,105,106];
+for (let number of myArray){
+    console.log("the element of index "+ myArray.indexOf(number) + " is " + number + " and its final value is " + (number+5));}
+
+// Arrays can contain other arrays, allowing for the creation of multidimensional arrays (like matrices).
+let matrix = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]];
+console.log(matrix[1][2]);  // Output: 6
