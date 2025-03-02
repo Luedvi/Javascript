@@ -524,8 +524,16 @@ console.log(sum);  // Output: 10
 // indexOf(): Returns the first index of the value, or -1 if not found.
 let index = fruits.indexOf("banana");
 let myArray = [101,102,103,104,105,106];
+console.log(myArray.indexOf(103, 3));  // Start searching from index 3, Outputs -1 (since 103 is before index 3)
+
 for (let number of myArray){
     console.log("the element of index "+ myArray.indexOf(number) + " is " + number + " and its final value is " + (number+5));}
+
+// sort(): orders the array
+console.log(myArray.sort());
+
+// reverse(): inverts the order of the array
+console.log(myArray.reverse());
 
 // Arrays can contain other arrays, allowing for the creation of multidimensional arrays (like matrices).
 let matrix = [
