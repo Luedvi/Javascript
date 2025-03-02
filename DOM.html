@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DOM Example</title>
+</head>
+<body>
+  <h1 id="myHeading">Hello, World!</h1>
+  <p class="myParagraph">This is a paragraph.</p>
+  <button id="myButton">Click Me</button>
+  
+<!-- Document Object Model (DOM): a programming interface for web documents. It represents the structure of a document
+    (like an HTML page) as a tree-like structure of objects, called nodes. This representation allows programs, particularly
+    JavaScript, to interact with and modify the content, structure, and style of a web page.-->
+  <script>
+    let greatArray = ['Hello', 1586, 12, 'world', true];
+    document.write("<br> original array: <br>" + greatArray);
+    document.write("<br>");
+    greatArray[2] = "program";
+    document.write("<br> array with third item changed: <br>" + greatArray);
+    document.write("<br>");
+    greatArray.sort();
+    document.write("<br> ordered array: <br>" + greatArray);
+    document.write("<br>");
+    greatArray.reverse();
+    document.write("<br> inverted array: <br>" + greatArray);
+    
+    // Accessing elements using the DOM
+    let heading = document.getElementById("myHeading");
+    let paragraphs = document.getElementsByClassName("myParagraph"); // This line finds all elements with the class "myParagraph" and stores them in the paragraphs variable.
+    let button = document.getElementById("myButton");
+
+   /* textContent: gets or sets the text content of an element, including all its descendant elements. It treats all content as plain text, ignoring any HTML markup.
+   If you insert HTML tags, they will be displayed as literal text. It retrieves the content of all elements, even those hidden by CSS. It is safer than innerHTML
+   because it doesn't execute HTML. This makes it ideal for inserting user-generated text without risking XSS attacks. It's generally faster than innerHTML because it doesn't involve HTML parsing*/
+    heading.textContent = "Hello, DOM!"; // Changes the heading text
+    
+    /* innerHTML: gets or sets the HTML markup contained within an element. This means it interprets and processes any HTML tags you provide.It can parse HTML strings,
+    allowing you to insert or retrieve complex HTML structures. This makes it powerful for dynamically adding or changing formatted content. mUsing innerHTML with untrusted
+    user input can create vulnerabilities to cross-site scripting (XSS) attacks. If malicious HTML or JavaScript is injected, it will be executed by the browser.   
+    Modifying innerHTML can be relatively slow, as the browser needs to parse and re-render the HTML.*/
+    paragraphs[0].innerHTML = "<strong>This paragraph has been changed!</strong>"; //Because this returns a collection, accessing the first element requires the use of an index, in this case paragraphs[0]. It Changes the paragraph's inner HTML.
+
+    // Adding an event listener
+    button.addEventListener("click", function() {
+      alert("Button Clicked!");
+    });
+  </script>
+</body>
+</html>
