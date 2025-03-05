@@ -541,3 +541,6 @@ let matrix = [
   [4, 5, 6],
   [7, 8, 9]];
 console.log(matrix[1][2]);  // Output: 6
+
+// https://www.w3schools.com/jsref/jsref_obj_array.asp
+// https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array
