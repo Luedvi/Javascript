@@ -380,30 +380,6 @@ console.log(calcularTotal("margarita", 2));
 console.log(calcularTotal("hawaiana", 0));
 console.log(calcularTotal("vegetariana", 1)); // Pizza no válida
 
-// User input: the standard way to handle user input in a web browser is by using html forms.  You create an HTML form with input elements, and then use JavaScript to access the values entered by the user.
-<!DOCTYPE html>
-<html>
-<head>
-<title>Input Example</title>
-</head>
-<body>
-
-<form id="myForm">
-  <label for="name">Name:</label>
-  <input type="text" id="name" name="name"><br><br>// The id attributes are crucial for targeting the elements with JavaScript.
-  <input type="button" value="Submit" onclick="getInput()">
-</form>
-
-<script>
-function getInput() {
-  let name = document.getElementById("name").value;
-  console.log("Hello, " + name + "!"); // Or do something else with the input
-  // You can also send the data to a server here (more advanced)
-}
-</script>
-</body>
-</html>
-
 // The prompt() function: displays a dialog box that prompts the user for input. It's simpler than forms but less flexible.
 let name = prompt("Please enter your name:");
 let age = prompt("enter your age:", "100");// it can take an optional default value
@@ -426,6 +402,7 @@ for (let number = 1; total <= 100; number ++){
     total += summation;
     if (total <= 100){
         console.log("iteration" + number + ": " + summation + " total: " + total);}}
+
 // for...of loop: is used to iterate over the values of iterable objects like arrays, strings, etc.
 // for (let value of iterable) {Code to execute}
 const numbers = [1, 2, 3, 4, 5];
@@ -481,6 +458,17 @@ console.log(fruits[2]);  // Output: "cherry"
 
 // The `length` property returns the number of elements in the array
 console.log(fruits.length);  // Output: 3
+
+indexNum = 0;
+while (indexNum < fruits.length){
+    console.log("The value is: " + fruits[indexNum]);
+    indexNum++;}
+
+let myNumbers = [500,500,500,500,500];
+let total = 0;
+for (let koala = 0; koala < myNumbers.length; koala++){
+    total += myNumbers[koala];}
+console.log("total is: " + total);
 
 // You can change an array element by assigning a new value to a specific index
 fruits[1] = "orange";  // Modifies the second element
