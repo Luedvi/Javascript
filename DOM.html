@@ -4,6 +4,20 @@
   <title>DOM Example</title>
 </head>
 <body>
+<!-- User input: the standard way to handle user input in a web browser is by using html forms.  You create an HTML form with input elements, and then use JavaScript to access the values entered by the user-->
+  <form id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name"><br><br>// The id attributes are crucial for targeting the elements with JavaScript.
+        <input type="button" value="Submit" onclick="getInput()">
+  </form>
+
+  <script>
+      function getInput() {
+      let name = document.getElementById("name").value;
+      console.log("Hello, " + name + "!"); // Or do something else with the input
+      // You can also send the data to a server here (more advanced)}
+  </script>
+  
   <h1 id="myHeading">Hello, World!</h1>
   <p class="myParagraph">This is a paragraph.</p>
   <button id="myButton">Click Me</button>
