@@ -55,14 +55,23 @@ if (true) {
 }
 console.log(x); // 10 (because x is function or global scoped)
 console.log(y); // ReferenceError: y is not defined (because y is block scoped)
+
 /* "const" in JavaScript is used to declare variables whose values are immutable (cannot be reassigned) after the initial assignment.
 Just like let, variables declared with const are block-scoped. This means that the variable is only accessible within the block (or statement) where it is defined.*/
 if (true) {
     const x = 10;
 }
 console.log(x); // ReferenceError: x is not defined
+
 //  A const variable must be initialized at the time of declaration. You cannot declare a const variable without assigning a value.
 const y; // SyntaxError: Missing initializer in const declaration
+// A let variable can be declared without assigning a value
+let sasha;
+sasha = "puppy";
+let myth;
+console.log(myth);
+myth = "sup";
+console.log(myth);
 
 /* const ensures that the binding (reference) to the variable cannot be changed once it’s been assigned. However, if the variable holds an object or an array,
 the content of the object or array can still be modified. So, while you cannot reassign the object, you can modify its properties.*/
@@ -111,11 +120,14 @@ const makes your code more predictable and ensures that the variable’s referen
 const pi = 3.14;
 const user = { name: "Alice" };
 user.name = "Bob"; // allowed: mutating the object // user = {}; // TypeError: Assignment to constant variable.
-// For variables that might change their value during the execution of your code, use let. This is commonly used for counters, flags, and temporary variables within loops or conditionals.
+/* For variables that might change their value during the execution of your code, use let. This is commonly used for counters, flags, and temporary variables within loops or conditionals.
+This means we can't re-declare a "let" variable but we can reassign it.*/
 let counter = 0;
 counter++; // allowed: variable can be reassigned
 let name = "Alice";
 name = "Bob"; // allowed: reassignment
+name = 23
+name = true
 
 // we can use strings, numbers and the "$" and "_" symbols, no other symbol is allowed
 var $ = 49
@@ -201,40 +213,104 @@ console.log(null === undefined); // false (different types: null vs undefined)
 let str1 = "Hello, World!";
 let str2 = 'JavaScript';
 let str3 = `Template literal`;
+// String(): To explicitly convert any value to a string
+let num = 123;
+let str = String(num); // Converts number to string "123"
+console.log(str); // "123"
+// .toString(): Every JavaScript object can be converted to a string using this method
+let num = 123;
+let str = num.toString(); // Converts number to string "123"
+console.log(str); // "123"
 
 // Number: represents both integer and floating-point numbers. JavaScript has one type for numbers (there is no separate integer type).
 let num1 = 42; // Integer
 let num2 = 3.14; // Floating-point number
 let num3 = -100; // Negative number
+//Number(): To convert a value to a number
+let str = "123";
+let num = Number(str); // Converts string to number 123
+console.log(num); // 123
+// parseInt(): To convert a string to an integer
+let str = "123px";
+let num = parseInt(str); // Converts string to integer 123
+console.log(num); // 123
+// parseFloat(): To convert a string to a floating-point number
+let str = "123.45abc";
+let num = parseFloat(str); // Converts string to floating-point number 123.45
+console.log(num); // 123.45
+
 // BigInt: allows for representing very large integers that exceed the limits of the Number type (which can safely represent integers only up to 2^53 - 1).
 let bigInt1 = 1234567890123456789012345678901234567890n;  // The 'n' denotes a BigInt
+// BigInt(): converts to a BigInt data type
+let bigger = 4214321432421341234124321535324;
+let biggerNumber = BigInt(bigger);
+console.log(biggerNumber);
+
 // Boolean: represents a logical value, either true or false
 let isActive = true;
 let isComplete = false;
+// Boolean(): To convert any value to a boolean
+let value = 1;
+let boolValue = Boolean(value); // Converts to true
+console.log(boolValue); // true
+
+let emptyStr = "";
+let boolValue2 = Boolean(emptyStr); // Converts to false
+console.log(boolValue2); // false
+
 // Undefined: A variable that is declared but not assigned a value is of type undefined. Also, the return value of functions that don’t explicitly return a value is undefined.
 let x;
 console.log(x);  // Outputs: undefined
-
-function test() {}
-console.log(test());  // Outputs: undefined
-// we can create a variable and then assign it a value in another line. The variable has an "undefined" value until we assign some value
 var milk;
 alert(milk);
 milk = 'delicious';
 alert(milk);
+let guf = undefined;
+console.log(guf);
+guf = 45;
+console.log(guf);
+
+function test() {}
+console.log(test());  // Outputs: undefined
+
 // null: represents the intentional absence of any object value. It is a special value that is explicitly assigned to a variable to represent "nothing" or "no value".
 let person = null;
+console.log(person);
+
 // Symbol: is a unique and immutable value often used as an identifier for object properties. Each Symbol is guaranteed to be unique.
 let sym1 = Symbol('same description');
 let sym2 = Symbol('same description');
 let sym3 = Symbol();
 console.log(sym1 === sym2);  // Outputs: false
-// Symbols are typically used to create unique property keys in objects. This is especially useful when you want to avoid property name collisions between different parts of a program, especially in larger codebases or when working with external libraries.
+/* Symbols are typically used to create unique property keys in objects. This is especially useful when you want to avoid property name collisions
+between different parts of a program, especially in larger codebases or when working with external libraries.*/
 let sym5 = Symbol("id");
 let obj = {
   [sym5]: 123
 };
 console.log(obj[sym5]); // Outputs: 123
+
+// Object(): To explicitly convert a primitive value to an object
+let str = "hello";
+let obj = Object(str); // Converts string to an object
+console.log(obj); // [String: 'hello']
+
+// typeof operator: lets us know the data type of a variable
+console.log(typeof str1);
+console.log(typeof num2);
+console.log(typeof isActive);
+
+// Type Coercion (Implicit Casting)
+// When using + with a string and another value
+let num = 5;
+let str = "The number is: ";
+let result = str + num; // Implicitly converts the number to string
+console.log(result); // "The number is: 5"
+// Comparing values of different types
+let num = 10;
+let str = "10";
+let result = num == str; // Coerces the string to a number
+console.log(result); // true
 
 // You can define a function using either a function declaration or a function expression
 // function declaration
